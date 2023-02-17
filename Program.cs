@@ -1,66 +1,61 @@
-﻿//Задача 2
+﻿//Задача 10
 
-Console.WriteLine("Введите первое число:");
-Int32 number1, number2;
-number1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите второе число:");
-number2 = Convert.ToInt32(Console.ReadLine());
-if (number1>number2)
-{Console.WriteLine(number1 + ">" + number2);}
-else
-{
-    if (number1<number2)
- {Console.WriteLine(number1 + "<" + number2);}
- else
- {Console.WriteLine(number1 + "=" + number2);}
- }
+Console.WriteLine ("Введите трехзначное число:");
+Int32.TryParse(Console.ReadLine(), out Int32 number);
 
-// Задача 4
+    if (number>99 && number<1000)
+    {
+        number =(number/10)%10;
+        Console.WriteLine(number);
 
-Console.WriteLine("Введите первое число:");
-Int32 numb1, numb2, numb3;
-numb1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите второе число:");
-numb2 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите третье число:");
-numb3 = Convert.ToInt32(Console.ReadLine());
-if (numb1>numb2)
-{if (numb1>numb3)
- {Console.WriteLine("Максимально число:" + numb1);}
-else
- {Console.WriteLine("Максимально число:" + numb3);}
-}
-else
-{if (numb2>numb3)
- {Console.WriteLine("Максимально число:" + numb2);}
-else
- {Console.WriteLine("Максимально число:" + numb3);}
-}
+    }
+    else
+   
+    {
+       Console.WriteLine("Ошибка"); 
+    }
 
-// Задача 6
 
-Console.WriteLine("Введите число:");
-Int32 num1;
-float rem;
-num1 = Convert.ToInt32(Console.ReadLine());
-rem=num1%2;
-if (rem==0)
-{Console.WriteLine("Число: " + num1 +" - чётное");
-}
-else
-{
-    Console.WriteLine("Число: " + num1 +" - нечётное");
-}
 
-// Задача 8
-Console.WriteLine("Введите число:");
-Int32 num,i;
-string res="Результат:";
-num = Convert.ToInt32(Console.ReadLine());
-i=2;
-while (num>=i)
-{
-        res=res +"," + i.ToString();
-        i=i+2;
-}
-Console.WriteLine(res);
+//Задача 13
+
+Console.WriteLine ("Введите семизначное число:");
+Int32.TryParse(Console.ReadLine(), out Int32 numbe);
+
+    if (numbe>=1000000 && numbe<10000000)
+    {
+        Int32 numbeRigth=(numbe/10000)%10;
+        Int32 numbeleft=(numbe/100)%10;
+        Console.WriteLine("Третье число слева: "+numbeRigth);
+        Console.WriteLine("Третье число слева: "+numbeleft);   
+    }
+    else
+   
+    {
+       Console.WriteLine("Ошибка"); 
+    }
+
+
+
+//Задача 15
+
+Console.WriteLine ("Введите цифру обозначающее день недели:");
+Int32.TryParse(Console.ReadLine(), out Int32 numb);
+    if (numb>0 && numb<=7)
+    {
+        if (numb>5)
+        {
+           Console.WriteLine("Да"); 
+        }
+        else
+        {
+            Console.WriteLine("Нет");
+        }
+        
+
+    }
+    else
+   
+    {
+       Console.WriteLine("Ошибка"); 
+    }
