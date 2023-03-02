@@ -1,77 +1,96 @@
-﻿//  Задача 25:
-//  Console.WriteLine ("Введите два числа через запятую:");
-// string n =Console.ReadLine();
-// string[] array = n.Split(',');
-// Int32 length=array.Length;
-// if (length==2) {
-//     if (array[0]=="0"|| array[1]=="0"){Console.WriteLine ("0");}
-//     else{
-//         Int32.TryParse(array[0], out Int32 number1);
-//      Int32.TryParse(array[1], out Int32 number2);
-//      if(number1>0 && number2>0){
-//         double result= Math.Pow(number1,number2);
-//         Console.WriteLine (result);
-//         }
-//         else{ Console.WriteLine ("Ошибка");}
-        
-//         }   
-//    }
-// else{ Console.WriteLine ("Ошибка");}
+﻿Console.WriteLine ("Задача 34");
 
-// Задача 27
-
-// Console.WriteLine ("Введите число:");      
-// var n =Console.ReadLine();
-// if (n=="0") {
-//     Console.WriteLine("0");
-// }
-// else
-// {
-//     Int32.TryParse(n, out Int32 number);
-//     if (number>0){
-//         if(number>0){
-//         Int32 result=0;
-
-//         while (number!=0){
-//             Int32 ost=number%10;
-//             number=number/10;
-//              result= result+ost;
-             
-//              }
-//              Console.WriteLine (result);
-//         }
-//     }
-//     else { Console.WriteLine ("Ошибка");}
-// }
-
-// Задача 29
-
-//  Console.WriteLine ("Введите восемь чисел через запятую:");
-// string n =Console.ReadLine();
-// string[] array = n.Split(',');
-
-// Int32 length=array.Length;
-// if (length==8) {
-//     Int32 err=0;
-//     foreach (string i in array){
-//         if (i!="0"){
-//             Int32.TryParse(i, out Int32 number);
-            
-//             if (number==0){ Console.WriteLine ("Ошибка");
-            
-//                 err=1;
-//                 }
+        static Int32 WriteConsole(){
+            Console.WriteLine ("Введите количество элементов:");
+            Int32 number=0;
+            var n =Console.ReadLine();
+            if (n=="0") {
+                Console.WriteLine("0");}
+                else{
+                Int32.TryParse(n, out number);
+                if (number>0){
+                     }
+                else{Console.WriteLine ("Ошибка");
                
+                }      
+                     
+        }
+return number ;    
+}
+Int32 number=WriteConsole();
+if (number>0){
+    Int32[] array =new Int32[number];
+    Int32 result=0;
 
-//         }
+    for (int i = 0; i < array.Length; i++){
+       Random rnd = new Random();
+       array[i]=rnd.Next(100,1000);
+       Int32 ost=(array[i])%2;
+       if (ost==0){
+        result=result+1;
+       }
+       }
+       Console.WriteLine( "["+String.Join(",",array)+"]");
+       Console.WriteLine(result);
+}
+Console.WriteLine ("Задача 36");
+number=WriteConsole();
+if (number>0){
+    Int32[] array =new Int32[number];
+    Int32 result=0;
+    for (int i = 0; i < array.Length; i++){
+       Random rnd = new Random();
+       array[i]=rnd.Next(-10000,10000);
+        if ((i%2)!=0){
+        result=result+array[i];
+       }
+       }
+       Console.WriteLine( "["+String.Join(",",array)+"]");
+       Console.WriteLine(result);
+}
 
 
-//     }
-//     if (err==0){Console.WriteLine( "["+String.Join(",",array)+"]");}
-//     else {Console.WriteLine ("Ошибка");}
+Console.WriteLine ("Задача 38");
+number=WriteConsole();
+if (number>0){
+    Double[] array =new Double[number];
+    Double max=0,min=1,result=0;
+    for (int i = 0; i < array.Length; i++){
+       Random rnd = new Random();
+       array[i]=rnd.NextDouble();
+        if (array[i]>max){max=array[i];}
+        if (array[i]<min){min=array[i];}
+       }
+       result=max-min;
 
-    
-//    }
-// else{ Console.WriteLine ("Ошибка");
-// }
+       Console.WriteLine( "["+String.Join(",",array)+"]");
+       Console.WriteLine(result);
+}
+
+Console.WriteLine ("Доп");
+number=WriteConsole();
+if (number>0){
+    Int32[] array =new Int32[number];
+    for (int i = 0; i < array.Length; i++){
+       Random rnd = new Random();
+       array[i]=rnd.Next(-100,100);}
+    if ((array.Length)%2==0){
+        Int32[] ArrayResult=new Int32[(array.Length/2)];
+        for (int i = 0; i < (array.Length)/2; i++){  
+            ArrayResult[i]=array[i]*array[array.Length-i-1];
+        }
+         Console.WriteLine( "["+String.Join(",",array)+"]");
+         Console.WriteLine( "["+String.Join(",",ArrayResult)+"]");
+    }
+    else{
+        Int32[] ArrayResult=new Int32[(array.Length/2)+1];
+        for (int i = 0; i < (array.Length)/2; i++){  
+            ArrayResult[i]=array[i]*array[array.Length-i-1];
+        }
+        ArrayResult[(array.Length/2)]=array[(array.Length/2)];
+        Console.WriteLine( "["+String.Join(",",array)+"]");
+        Console.WriteLine( "["+String.Join(",",ArrayResult)+"]");
+
+    }      
+}
 
