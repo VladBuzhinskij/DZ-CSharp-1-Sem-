@@ -1,96 +1,58 @@
-﻿Console.WriteLine ("Задача 34");
-
-        static Int32 WriteConsole(){
-            Console.WriteLine ("Введите количество элементов:");
-            Int32 number=0;
-            var n =Console.ReadLine();
-            if (n=="0") {
-                Console.WriteLine("0");}
-                else{
-                Int32.TryParse(n, out number);
-                if (number>0){
-                     }
-                else{Console.WriteLine ("Ошибка");
-               
-                }      
-                     
+﻿// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+Console.WriteLine("Задача 41. Dведите числа через запятую:");
+Int32[] InputCheck()
+{
+    string str = Console.ReadLine();
+    string[] stri = str.Split(',');
+    Int32[] result = new Int32[(stri.Length) + 1];
+    Int32 number;
+    for (int i = 0; i < stri.Length; i++)
+    {
+        if (stri[i] == "0")
+        {
+            result[i + 1] = 0;
         }
-return number ;    
-}
-Int32 number=WriteConsole();
-if (number>0){
-    Int32[] array =new Int32[number];
-    Int32 result=0;
-
-    for (int i = 0; i < array.Length; i++){
-       Random rnd = new Random();
-       array[i]=rnd.Next(100,1000);
-       Int32 ost=(array[i])%2;
-       if (ost==0){
-        result=result+1;
-       }
-       }
-       Console.WriteLine( "["+String.Join(",",array)+"]");
-       Console.WriteLine(result);
-}
-Console.WriteLine ("Задача 36");
-number=WriteConsole();
-if (number>0){
-    Int32[] array =new Int32[number];
-    Int32 result=0;
-    for (int i = 0; i < array.Length; i++){
-       Random rnd = new Random();
-       array[i]=rnd.Next(-10000,10000);
-        if ((i%2)!=0){
-        result=result+array[i];
-       }
-       }
-       Console.WriteLine( "["+String.Join(",",array)+"]");
-       Console.WriteLine(result);
-}
-
-
-Console.WriteLine ("Задача 38");
-number=WriteConsole();
-if (number>0){
-    Double[] array =new Double[number];
-    Double max=0,min=1,result=0;
-    for (int i = 0; i < array.Length; i++){
-       Random rnd = new Random();
-       array[i]=rnd.NextDouble();
-        if (array[i]>max){max=array[i];}
-        if (array[i]<min){min=array[i];}
-       }
-       result=max-min;
-
-       Console.WriteLine( "["+String.Join(",",array)+"]");
-       Console.WriteLine(result);
-}
-
-Console.WriteLine ("Доп");
-number=WriteConsole();
-if (number>0){
-    Int32[] array =new Int32[number];
-    for (int i = 0; i < array.Length; i++){
-       Random rnd = new Random();
-       array[i]=rnd.Next(-100,100);}
-    if ((array.Length)%2==0){
-        Int32[] ArrayResult=new Int32[(array.Length/2)];
-        for (int i = 0; i < (array.Length)/2; i++){  
-            ArrayResult[i]=array[i]*array[array.Length-i-1];
+        else
+        {
+            Int32.TryParse(stri[i], out number);
+            if (number != 0) { result[i + 1] = Convert.ToInt32(stri[i]); }
+            else
+            {
+                result[0] = 1;
+            }
         }
-         Console.WriteLine( "["+String.Join(",",array)+"]");
-         Console.WriteLine( "["+String.Join(",",ArrayResult)+"]");
     }
-    else{
-        Int32[] ArrayResult=new Int32[(array.Length/2)+1];
-        for (int i = 0; i < (array.Length)/2; i++){  
-            ArrayResult[i]=array[i]*array[array.Length-i-1];
-        }
-        ArrayResult[(array.Length/2)]=array[(array.Length/2)];
-        Console.WriteLine( "["+String.Join(",",array)+"]");
-        Console.WriteLine( "["+String.Join(",",ArrayResult)+"]");
-
-    }      
+    return result;
 }
+Int32[] result = InputCheck();
+if (result[0] == 0)
+{
+    Int32 answer = 0;
+    for (int i = 1; i < result.Length; i++)
+    {
+        if (result[i] > 0)
+        {
+            answer++;
+        }
+    }
+    Console.WriteLine(answer);
+}
+else { Console.WriteLine("Ошибка"); }
+
+
+// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями 
+// y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+Console.WriteLine("Задача 43. Введите значения b1, k1, b2 и k2 через запятую:");
+Int32[] result32 = InputCheck();
+if (result32[0] == 0)
+{
+    if (result32[2] != result32[4])
+    {
+        Double X = (result32[3] - result32[1]) / (result32[2]! - result32[4]);
+        Double Y = (result32[2] * X) + result32[1];
+        Console.WriteLine("(" + X + ";" + Y + ")");
+    }
+    else { Console.WriteLine("Прямые не пересекаются"); }
+}
+else { Console.WriteLine("Ошибка"); }
 
